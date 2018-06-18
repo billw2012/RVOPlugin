@@ -125,8 +125,11 @@ public:
     FORCEINLINE void TickLockTimer(float DeltaTime);
 
     FORCEINLINE bool HasLockedPreferredVelocity() const;
-    FORCEINLINE void LockPreferredVelocity(const FVector& InPreferredVelocity);
-    FORCEINLINE void LockPreferredVelocity(const FVector& InPreferredVelocity, float LockDuration);
+
+	UFUNCTION(BlueprintCallable, Category="RVO|Components|AgentComponent")
+    void LockPreferredVelocity(const FVector& InPreferredVelocity);
+    
+	FORCEINLINE void LockPreferredVelocity(const FVector& InPreferredVelocity, float LockDuration);
     FORCEINLINE void UnlockPreferredVelocity();
 
     FORCEINLINE bool IsGoalAdjustmentRequired() const;
@@ -140,7 +143,10 @@ public:
 
     FORCEINLINE FVector GetPreferredVelocity() const;
     FORCEINLINE FVector GetPreferredDirection() const;
-    FORCEINLINE FVector GetAvoidanceVelocity() const;
+
+	UFUNCTION(BlueprintCallable, Category="RVO|Components|AgentComponent")
+    FVector GetAvoidanceVelocity() const;
+
     FORCEINLINE FVector GetAgentVelocity() const;
     FORCEINLINE FVector GetAgentLocation() const;
     FORCEINLINE float GetAgentMaxSpeed() const;
